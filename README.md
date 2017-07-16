@@ -1,5 +1,7 @@
 利用Doc2Vec计算文档相似度
-1.	算法思想
+=============
+算法思想
+-------------
 Doc2Vec模型基于Word2vec模型，并在其基础上增加了一个段落向量。
 以Doc2Vec的C-BOW方法为例
 1)	训练过程中新增了paragraph id，即训练语料中每个句子都有一个唯一的id。paragraph id和普通的word一样，也是先映射成一个向量，即paragraph vector。paragraph vector与word vector的维数虽一样，但是来自于两个不同的向量空间。在之后的计算里，paragraph vector和word vector累加或者连接起来，作为输出层softmax的输入。在一个句子或者文档的训练过程中，paragraph id保持不变，共享着同一个paragraph vector，相当于每次在预测单词的概率时，都利用了整个句子的语义。
